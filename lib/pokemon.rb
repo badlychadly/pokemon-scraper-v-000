@@ -13,9 +13,7 @@ end
 
   def self.find(id, db)
     columns = db.execute("SELECT * FROM pokemon WHERE id =(?);",id)[0]
-    pokemon = self.new(id: id, name: column[1], type: column[2],db: db)
-    pokemon.hp = column[3]
-    pokemon
+     self.new(id: id, name: columns[1], type: columns[2], hp: columns[3], db: db)
   end
 
   def alter_hp(hp, db)
