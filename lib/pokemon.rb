@@ -12,7 +12,7 @@ end
   end
 
   def self.find(id, db)
-    column = db.execute("SELECT * FROM pokemon WHERE id =(?);",id)[0]
+    columns = db.execute("SELECT * FROM pokemon WHERE id =(?);",id)[0]
     pokemon = self.new(id: id, name: column[1], type: column[2],db: db)
     pokemon.hp = column[3]
     pokemon
